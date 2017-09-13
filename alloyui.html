@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+<script src="http://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+<link href="http://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+<script type="text/javascript">
+YUI().use(
+  'aui-scheduler',
+  function(Y) {
+    var events = [
+      {
+        content: 'Event1',
+        endDate: new Date(2017, 1, 4, 5),
+        startDate: new Date(2017, 1, 4, 1)
+      }
+    ];
+
+    var eventRecorder = new Y.SchedulerEventRecorder();
+	var agendaView = new Y.SchedulerAgendaView();
+    var dayView = new Y.SchedulerDayView();
+    var weekView = new Y.SchedulerWeekView();
+    var monthView = new Y.SchedulerMonthView();
+
+    new Y.Scheduler(
+      {
+        boundingBox: '#myScheduler',
+        date: new Date(2017, 6, 27),
+        eventRecorder: eventRecorder,
+        items: events,
+        render: true,
+         views: [weekView,dayView,monthView, agendaView]
+      }
+    );
+  }
+);
+</script>
+</head>
+
+<body>
+<div id="myScheduler"></div>
+</body>
+
+</html>
